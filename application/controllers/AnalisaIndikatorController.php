@@ -16,9 +16,9 @@ class AnalisaIndikatorController extends CI_Controller {
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
         $data['title'] = "Analisa Indikator ".$unit;
-        $data['list']=$this->getHeaderData_get($unit,8);
+        $data['list']=$this->getHeaderData_get($unit,$id);
         $data['unit']=$unit;
-        $tse=$data['charts']=$this->buildChart($data);
+        $data['charts']=$this->buildChart($data);
         $html = $this->load->view('analisa_indikator', $data, true);
         $file_pdf = $data['title'];
         $this->pdfgenerator->generate($html, $file_pdf);
