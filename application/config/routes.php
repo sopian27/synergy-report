@@ -55,6 +55,6 @@ $route['pdf_a/(:any)'] = 'FormAController/pdf/$1';
 $route['pdf_b/(:any)'] = 'FormBController/pdf/$1';
 $route['pdf_c/(:any)/(:any)'] = 'RekapBulananController/pdf/$1/$2';
 $route['profile_indikator/(:any)/(:any)'] = 'ProfileIndikatorController/pdf/$1/$2';
-$route['analisa_indikator/(:any)/(:any)'] = 'AnalisaIndikatorController/pdf/$1/$2';
+$route['analisa_indikator/(:any)'] = 'AnalisaIndikatorController/pdf/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
