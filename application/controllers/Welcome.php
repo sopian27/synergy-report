@@ -25,9 +25,43 @@ class Welcome extends CI_Controller {
         $data['title'] = "Data Random";
         $file_pdf = $data['title'];
         $paper = 'A4';
+		//$html = $this->load->view('analisa_indikator', $data, true);
         $orientation = "landscape";
-        $html = $this->load->view('form_a', $data, true);
-        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+		$chartConfig = [
+			'type' => 'bar',
+			'data' => [
+				'labels' => ['2012', '2013', '2014', '2015', '2016'],
+				'datasets' => [
+					[
+						'label' => 'Users',
+						'data' => [120, 60, 50, 180, 120],
+						'borderColor' => 'rgba(255, 99, 132, 1)',
+						'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
+						'borderWidth' => 1
+					]
+				]
+			]
+		];
+		
+		// Encode the config to JSON and create the QuickChart URL
+		$chartUrl = 'https://quickchart.io/chart?w=500&h=300&c=' . urlencode(json_encode($chartConfig));
+
+		// Misalnya $chart adalah array yang berisi URL gambar
+		$chart = ['imageUrl' => $chartUrl];
+		// Pastikan Anda mengambil string URL gambar dari array
+		$chartUrl = $chart['imageUrl'];
+				
+		// Output the image
+		//echo '<img src="' . $chartUrl . '" alt="Chart" />';
+		$data['chart']=$chartUrl;
+        $html = $this->load->view('welcome_message',$data,true);
+        //$this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+		//echo $html;
+		//exit();
+	
+		$this->pdfgenerator->generate($html, $file_pdf);
+
+		
 	}
 
 	public function pdf(){

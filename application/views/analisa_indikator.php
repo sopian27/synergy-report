@@ -8,29 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
     <style>
     body {
         transform: scale(0.8);
@@ -83,12 +60,24 @@
                 <th>TARGET</th>
                 <td><?=$value['TARGET_PENCAPAIAN']?></td>
             </tr>
+            <?php foreach ($charts as $index => $chartUrl): ?>
             <tr>
-                <th>GRAFIK</th>
+                <?php
+                    if($index==0) {
+                        echo "<th>GRAFIK</th>";
+                    }else{
+                        echo "<th></th>";
+                    }
+                ?> 
                 <td>
-                    <canvas id="myChart"></canvas>
+                    <div>
+                        <h2>( Charts Index: <?= ($index+=1) ?>)</h2>
+                        <img src="<?= $chartUrl ?>" alt="Chart for <?= $index ?>" />
+                    </div>
+                   
                 </td>
             </tr>
+            <?php endforeach; ?>
             <tr>
                 <th>ANALISA</th>
                 <td><?=$value['analisa']?></td>
@@ -101,5 +90,7 @@
         </table>
     </div>
 </body>
+<script>
+</script>
 
 </html>

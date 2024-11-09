@@ -9,6 +9,9 @@ class Pdfgenerator
     {
         $options = new Options();
         $options->set('isRemoteEnabled', TRUE);
+        $options->set('enable-javascript', TRUE);
+        $options->set('images', TRUE);
+        
         //$options->set('isHtml5ParserEnabled', true);
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
@@ -21,5 +24,8 @@ class Pdfgenerator
         } else {
             return $dompdf->output();
         }
+        
     }
+
+    
 }
