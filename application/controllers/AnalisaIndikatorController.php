@@ -11,12 +11,12 @@ class AnalisaIndikatorController extends CI_Controller {
     }
 
 
-    public function pdf($unit,$id) {
+    public function pdf($unit) {
 
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
         $data['title'] = "Analisa Indikator ".$unit;
-        $data['list']=$this->getHeaderData_get($unit,$id);
+        $data['list']=$this->getHeaderData_get($unit,8);
         $data['unit']=$unit;
         $data['charts']=$this->buildChart($data);
         $html = $this->load->view('analisa_indikator', $data, true);
