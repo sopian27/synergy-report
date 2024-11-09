@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
     <style>
     body {
         transform: scale(0.8);
@@ -44,38 +67,36 @@
         </div>
         <table class="table table-striped table-bordered">
             <?php  foreach($list as $obj => $value){ ?>
-                <tr>
-                    <th>INDIKATOR</th>
-                    <td>Judul singkat yang spesifik mengenai indikator apa yang akan diukur.</td>
-                </tr>
-                <tr>
-                    <th>NUMERATOR</th>
-                    <td>Jumlah hasil kritis laboratorium yang dilaporkan &lt; 30 menit</td>
-                </tr>
-                <tr>
-                    <th>DENOMINATOR</th>
-                    <td>Jumlah hasil kritis laboratorium yang survey</td>
-                </tr>
-                <tr>
-                    <th>TARGET</th>
-                    <td>100%</td>
-                </tr>
-                <tr>
-                    <th>GRAFIK</th>
-                    <td>
-                        <div class="graph">
-                           
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>ANALISA</th>
-                    <td>Pertanyaan dan Jawaban: Apa alasan / penyebab di balik trend pada grafik di atas?</td>
-                </tr>
-                <tr>
-                    <th>REKOMENDASI</th>
-                    <td>Pertanyaan dan Jawaban: Apa perbaikan yang dapat dilakukan untuk memperbaiki trend di atas?</td>
-                </tr>
+            <tr>
+                <th>INDIKATOR</th>
+                <td><?=$value['JUDUL_INDIKATOR']?></td>
+            </tr>
+            <tr>
+                <th>NUMERATOR</th>
+                <td><?=$value['NUMERATOR']?></td>
+            </tr>
+            <tr>
+                <th>DENUMERATOR</th>
+                <td><?=$value['DENUMERATOR']?></td>
+            </tr>
+            <tr>
+                <th>TARGET</th>
+                <td><?=$value['TARGET_PENCAPAIAN']?></td>
+            </tr>
+            <tr>
+                <th>GRAFIK</th>
+                <td>
+                    <canvas id="myChart"></canvas>
+                </td>
+            </tr>
+            <tr>
+                <th>ANALISA</th>
+                <td><?=$value['analisa']?></td>
+            </tr>
+            <tr>
+                <th>REKOMENDASI</th>
+                <td><?=$value['rekomendasi']?></td>
+            </tr>
             <?php } ?>
         </table>
     </div>

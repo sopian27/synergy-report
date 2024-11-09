@@ -24,13 +24,9 @@ class AnalisaIndikatorController extends CI_Controller {
     }
 
     public function getHeaderData_get($unit,$id) {
-        
-        $process_type = $unit;
+
         $dynamicData = array();
-        $where = array(
-            "id" => $id
-        );
-        $dynamicData=$this->sikat_analisa_indikator_model->get_where($where);
+        $dynamicData=$this->sikat_analisa_indikator_model->getByQuery($unit,$id);
         return $dynamicData;
     }
 }
