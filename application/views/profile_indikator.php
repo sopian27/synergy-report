@@ -140,12 +140,16 @@
             </tr>
             <tr>
                 <th>Kode Indikator</th>
-                <?php 
-                        if ($value->IS_NASIONAL == '1') echo "Nasional<br>";
-                        if ($value->IS_UNIT == '1') echo "Unit<br>";
-                        if ($value->IS_PRIORITAS_RS == '1') echo "Prioritas Unit";
-                        if ($value->IS_PRIORITAS_UNIT == '1') echo "Prioritas RS";
+                <td>
+                    <?php 
+                   $kodeIndikator="";
+                        if ($value->isINM == '1') $kodeIndikator.="INM<br> ";
+                        if ($value->isIMPRs == '1') $kodeIndikator.="IMPrs<br> ";
+                        if ($value->isIMPUnit == '1') $kodeIndikator.="IMPUnit<br> ";
+
+                        echo $kodeIndikator;
                     ?>
+                </td>
             </tr>
             <?php } ?>
         </table>

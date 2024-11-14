@@ -64,25 +64,37 @@
                     foreach ($list as $obj => $value) {
                         if ($value->STATUS_ACC == '1') {
                 ?>
-                            <tr>
-                                <td><?= $j ?></td>
-                                <td><?= $value->JUDUL_INDIKATOR ?></td>
-                                <td><?= 'IMC' ?></td>
-                                <td><?= $value->TARGET_PENCAPAIAN ?></td>
-                                <?php 
+                <tr>
+                    <td><?= $j ?></td>
+                    <td><?= $value->JUDUL_INDIKATOR ?></td>
+                <tr>
+                    <th>Kode Indikator</th>
+                    <td>
+                        <?php 
+                   $kodeIndikator="";
+                        if ($value->isINM == '1') $kodeIndikator.="INM, ";
+                        if ($value->isIMPRs == '1') $kodeIndikator.="IMPrs, ";
+                        if ($value->isIMPUnit == '1') $kodeIndikator.="IMPUnit ";
+
+                        echo $kodeIndikator;
+                    ?>
+                    </td>
+                </tr>
+                <td><?= $value->TARGET_PENCAPAIAN ?></td>
+                <?php 
                                 for ($yIterator = 0; $yIterator < count($y); $yIterator++) { ?>
-                                <td>
-                                    <?php 
+                <td>
+                    <?php 
                                 if (!empty($y[$yIterator]['m']) && isset($y[$yIterator]['m'][$iterator]['hasil_text'])) {
                                     echo $y[$yIterator]['m'][$iterator]['hasil_text']; // Output only one value per cell
                                 }
                                 ?>
-                                </td>
-                                <?php 
+                </td>
+                <?php 
                         } 
                     ?>
-                                <td><?= '0' ?></td>
-                            </tr>
+                <td><?= '0' ?></td>
+                </tr>
                 <?php 
                         $iterator++;
                         $j++;
