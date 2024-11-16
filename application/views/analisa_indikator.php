@@ -71,7 +71,6 @@
                 ?> 
                 <td>
                     <div>
-                        <h2>( Charts Index: <?= ($index+=1) ?>)</h2>
                         <img src="<?= $chartUrl ?>" alt="Chart for <?= $index ?>" />
                     </div>
                    
