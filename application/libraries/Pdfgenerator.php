@@ -5,19 +5,19 @@ use Dompdf\Options;
 
 class Pdfgenerator
 {
-    public function generate($html, $filename = '', $stream = TRUE)
+    public function generate($html, $filename, $stream = TRUE)
     {
+
         $options = new Options();
         $options->set('isRemoteEnabled', TRUE);
         $options->set('enable-javascript', TRUE);
         $options->set('images', TRUE);
-        
-        //$options->set('isHtml5ParserEnabled', true);
+    
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'landscape'); // A4 size in landscape orientation
-        //$dompdf->setPaper([0, 0, 2000, 8000]); // Custom width and height in points
+        $dompdf->setPaper('F4', 'landscape');
         $dompdf->render();
+    
         if ($stream) {
             $dompdf->stream($filename . ".pdf", array("Attachment" => 0));
             exit();
