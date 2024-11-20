@@ -110,8 +110,8 @@
                 <td>Anggaran: <?=$list->ANGGARAN?></td>
             </tr>
             <tr>
-                <td>Tanggal Mulai: <?=$list->TANGGAL_MULAI?></td>
-                <td>Tanggal Selesai: <?=$list->TANGGAL_SELESAI?></td>
+                <td>Tanggal Mulai Proyek: <?=$list->TANGGAL_MULAI?></td>
+                <td>Tanggal Selesai Proyek: <?=$list->TANGGAL_SELESAI?></td>
             </tr>
         </table>
         <?php 
@@ -126,6 +126,19 @@
             </tr>
             <tr>
                 <td><?=$siklus->RENCANA?></td>
+            </tr>
+            <tr>
+                <th>Tanggal Mulai Siklus:</th>
+            </tr>
+            <tr>
+                <td><?=$siklus->TANGGAL_MULAI?></td>
+            </tr>
+            <tr>
+                <th>Tanggal Selesai Siklus:</th>
+            </tr>
+            <tr>
+                <td><?=$siklus->TANGGAL_SELESAI?></td>
+            </tr>
             <tr>
                 <th>Saya berharap :</th>
             </tr>
