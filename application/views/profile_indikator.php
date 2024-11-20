@@ -45,6 +45,10 @@
         <table class="table table-striped table-bordered">
             <?php  foreach($list as $obj => $value){ ?>
             <tr>
+                <th>Nomor Urut</th>
+                <td><?=$value->ID?></td>
+            </tr>
+            <tr>
                 <th>Judul Indikator</th>
                 <td><?=$value->JUDUL_INDIKATOR?></td>
             </tr>
