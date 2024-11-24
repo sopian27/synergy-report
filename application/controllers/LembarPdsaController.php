@@ -9,21 +9,32 @@ class LembarPdsaController extends CI_Controller {
         $this->load->model('lembarPdsa_model');
         $this->load->model('lembarPdsaSiklus_Model');
         $this->load->library('pdfgenerator');
+        
     }
 
-
-    public function pdf($unit,$idx) {
-
+    public function pdf($unit, $idx) {
+        
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
-        $data['title'] = "Lembar Pdsa ".$unit;
-        $test=$data['list']=$this->getHeaderData_get($unit,$idx);
-        $data['unit']=$unit;
+        
+        // Menambahkan informasi unit dan idx ke title
+        $data['title'] = "Lembar Pdsa " . $unit . " - " . $idx;
+    
+        // Mendapatkan header data
+        $test = $data['list'] = $this->getHeaderData_get($unit, $idx);
+        $data['unit'] = $unit;
+        
+        // Memuat tampilan HTML untuk PDF
         $html = $this->load->view('lembar_pdsa', $data, true);
-        $file_pdf = $data['title'];
+        
+        // Tentukan nama file dengan kombinasi unit dan idx
+        $file_pdf = "Lembar_PDSA_" . $unit . "_" . $idx;
+        
+        // Panggil fungsi generate dari pdfgenerator
         $this->pdfgenerator->generate($html, $file_pdf);
+        
     }
-
+    
     public function getHeaderData_get($unit,$id) {
 
         $lembarPdsa = array();

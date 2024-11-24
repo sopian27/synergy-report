@@ -5,7 +5,7 @@ use Dompdf\Options;
 
 class Pdfgenerator
 {
-    public function generate($html, $filename, $stream = TRUE)
+    public function generate($html, $filename='', $stream = TRUE)
     {
 
         $options = new Options();
@@ -27,5 +27,22 @@ class Pdfgenerator
         
     }
 
-    
+    public function generate2($html, $filename = '',  $paper = '', $orientation = '', $stream = TRUE)
+    {
+        $options = new Options();
+        $options->set('isRemoteEnabled', TRUE);
+        $options->set('enable-javascript', TRUE);
+        $options->set('images', TRUE);
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper($paper, $orientation);
+        $dompdf->render();
+        if ($stream) {
+            $dompdf->stream($filename . ".pdf", array("Attachment" => 0));
+            exit();
+        } else {
+            return $dompdf->output();
+        }
+    }
+
 }
