@@ -181,6 +181,25 @@
             <tr>
                 <td><?=$siklus->TINDAKAN_SELANJUTNYA?></td>
             </tr>
+            <tr>
+                <th>Dokumentasi</th>
+            </tr>
+            <tr>
+                <?php
+                        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+
+                        // Mendapatkan host (domain atau IP)
+                        $host = $_SERVER['HTTP_HOST'];
+
+                        // Mendapatkan port (jika ada)
+                        $port = $_SERVER['SERVER_PORT'];
+                        $portPart = ($port && $port != 80 && $port != 443) ? ":$port" : "";
+
+                        // Menggabungkan menjadi URL
+                        $baseUrl = $protocol . '://' . $host . $portPart.'/synergy-server';
+                ?>
+                <td><img src="<?= $baseUrl.$siklus->FILE_PATH ?>" alt="Uploaded Image <?= $baseUrl.$siklus->FILE_PATH ?>" width="300" height="300" /></td>
+            </tr>
         </table>
 
         <?php $i++;
