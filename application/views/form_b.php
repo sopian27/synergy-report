@@ -55,7 +55,7 @@
                     <td><?=$value->JUDUL_INDIKATOR?></td>
                     <td><?=$m[$monthlyIterator]['numerator']?></td>
                     <td><?=$m[$monthlyIterator]['denumerator']?></td>
-                    <td><?=$m[$monthlyIterator]['hasil_text']?></td>
+                    <td><?=$m[$monthlyIterator]['hasil']?></td>
                     <td><?=$value->TARGET_PENCAPAIAN?></td>
                     <td><?= isset($m[$monthlyIterator]['analisa']) ? $m[$monthlyIterator]['analisa'] : '' ?></td>
                     
