@@ -198,7 +198,11 @@
                         // Menggabungkan menjadi URL
                         $baseUrl = $protocol . '://' . $host . $portPart.'/synergy-server';
                 ?>
-                <td><img src="<?= $baseUrl.$siklus->FILE_PATH ?>" alt="Uploaded Image <?= $baseUrl.$siklus->FILE_PATH ?>" width="300" height="300" /></td>
+                <?php if(!empty($siklus->FILE_PATH)){?>
+                        <td><img src="<?= $baseUrl.$siklus->FILE_PATH ?>" alt="Uploaded Image <?= $baseUrl.$siklus->FILE_PATH ?>" width="300" height="300" /></td>
+                <?php }else{?>
+                        <td></td>
+                <?php }?>
             </tr>
         </table>
 
