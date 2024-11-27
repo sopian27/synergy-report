@@ -63,18 +63,20 @@
             <?php foreach ($charts as $index => $chartUrl): ?>
             <tr>
                 <?php
-                    if($index==0) {
+                    if($index==$value['JUDUL_INDIKATOR']) {
                         echo "<th>GRAFIK</th>";
-                    }else{
-                        echo "<th></th>";
-                    }
                 ?> 
                 <td>
                     <div>
                         <img src="<?= $chartUrl ?>" alt="Chart for <?= $index ?>" />
                     </div>
-                   
                 </td>
+                <?php
+                    }else{
+                        echo "<th></th>";
+                        echo "<td></td>";
+                    }
+                ?> 
             </tr>
             <?php endforeach; ?>
             <tr>

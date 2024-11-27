@@ -25,6 +25,20 @@ class AnalisaIndikatorController extends CI_Controller {
     }
 
     
+    public function pdfUnit($unit) {
+
+        $json = file_get_contents('php://input');
+        $data = json_decode($json, true);
+        $data['title'] = "Analisa Indikator ".$unit;
+        $data['list']=$this->getHeaderData_get($unit,null);
+        $data['unit']=$unit;
+        $data['charts']=$this->buildChartDownload($data);
+        $html = $this->load->view('analisa_indikator', $data, true);
+        $file_pdf = $data['title'];
+        $this->pdfgenerator->generate($html, $file_pdf);
+    }
+
+    
     public function chart($unit) {
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
@@ -130,6 +144,24 @@ class AnalisaIndikatorController extends CI_Controller {
             $chartUrl = "https://quickchart.io/chart?w=500&h=300&c=" . urlencode($chartConfig);
     
             $listChart = $chartUrl;
+        }
+      
+        return $listChart;
+    }
+
+    public function buildChartDownload($data) {
+
+        $listChart =[];
+
+        foreach ($data['dataList'] as $index => $item) {
+            $chartData = $this->convertToQuickChartFormat($item['chart']);
+
+            $chartConfig = json_encode($chartData);
+            $chartUrl = "https://quickchart.io/chart?w=500&h=300&c=" . urlencode($chartConfig);
+    
+            //$listChart = $chartUrl;
+            $listChart[$item['kriteria']] = $chartUrl;
+
         }
       
         return $listChart;
