@@ -24,6 +24,16 @@ class AnalisaIndikatorController extends CI_Controller {
         $this->pdfgenerator->generate($html, $file_pdf);
     }
 
+    
+    public function chart($unit) {
+        $json = file_get_contents('php://input');
+        $data = json_decode($json, true);
+        //echo json_encode($this->buildChart($data));
+        echo json_encode(['listChart' => $this->buildChart($data)]);
+    }
+
+
+
     public function convertToQuickChartFormat($data) {
         // Array untuk menyimpan label x
         $labels = [];
@@ -111,7 +121,7 @@ class AnalisaIndikatorController extends CI_Controller {
 
     public function buildChart($data) {
 
-        $listChart =array();
+        $listChart ="";
 
         foreach ($data['dataList'] as $index => $item) {
             $chartData = $this->convertToQuickChartFormat($item['chart']);
@@ -119,7 +129,7 @@ class AnalisaIndikatorController extends CI_Controller {
             $chartConfig = json_encode($chartData);
             $chartUrl = "https://quickchart.io/chart?w=500&h=300&c=" . urlencode($chartConfig);
     
-            $listChart[$index] = $chartUrl;
+            $listChart = $chartUrl;
         }
       
         return $listChart;
