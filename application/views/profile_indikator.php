@@ -46,7 +46,7 @@
             <?php  foreach($list as $obj => $value){ ?>
             <tr>
                 <th>Nomor Urut</th>
-                <td><?=$value->ID?></td>
+                <td><?= $value->LEVEL == 0 ? $value->ID : $value->LEVEL ?></td>
             </tr>
             <tr>
                 <th>Judul Indikator</th>
