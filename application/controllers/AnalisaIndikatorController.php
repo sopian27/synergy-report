@@ -153,7 +153,7 @@ class AnalisaIndikatorController extends CI_Controller {
             $chartData = $this->convertToQuickChartFormat($item['chart']);
 
             $chartConfig = json_encode($chartData);
-            $chartUrl = "https://quickchart.io/chart?w=500&h=300&c=" . urlencode($chartConfig);
+            $chartUrl = "https://quickchart.io/chart?w=350&h=280&c=" . urlencode($chartConfig);
     
             $listChart = $chartUrl;
         }
