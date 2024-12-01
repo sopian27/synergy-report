@@ -21,7 +21,7 @@ class AnalisaIndikatorController extends CI_Controller {
         $data['charts']=$this->buildChart($data);
         $html = $this->load->view('analisa_indikator', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"potrait");
     }
 
     
@@ -35,7 +35,7 @@ class AnalisaIndikatorController extends CI_Controller {
         $data['charts']=$this->buildChartDownload($data);
         $html = $this->load->view('analisa_indikator', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"potrait");
     }
 
     
@@ -93,7 +93,11 @@ class AnalisaIndikatorController extends CI_Controller {
                         [
                             'scaleLabel' => [
                                 'display' => true,
-                                'labelString' => 'Bulan'
+                                'labelString' => 'Bulan',
+                                'fontSize' => 10 // Ukuran font untuk label sumbu x
+                            ],
+                            'ticks' => [
+                                'fontSize' => 10 // Ukuran font untuk nilai sumbu x
                             ]
                         ]
                     ],
@@ -102,26 +106,34 @@ class AnalisaIndikatorController extends CI_Controller {
                             'ticks' => [
                                 'beginAtZero' => true,
                                 'stepSize' => 10, // Interval nilai pada sumbu y
-                                //'max' => 120     // Nilai maksimum sumbu y
+                                //'max' => 120,   // Nilai maksimum sumbu y
+                                'fontSize' => 10 // Ukuran font untuk nilai sumbu y
                             ],
                             'scaleLabel' => [
                                 'display' => true,
-                                'labelString' => $data['options']['yTitle'] ?? 'Persen (%)'
+                                'labelString' => $data['options']['yTitle'] ?? 'Persen (%)',
+                                'fontSize' => 10 // Ukuran font untuk label sumbu y
                             ]
                         ]
                     ]
                 ],
                 'legend' => [
                     'display' => true,
-                    'position' => 'bottom'
+                    'position' => 'bottom',
+                    'labels' => [
+                        'fontSize' => 10 // Ukuran font untuk legend
+                    ]
                 ],
                 'tooltips' => [
                     'enabled' => true,
                     'mode' => 'index',
-                    'intersect' => false
+                    'intersect' => false,
+                    'bodyFontSize' => 10, // Ukuran font untuk isi tooltip
+                    'titleFontSize' => 10 // Ukuran font untuk judul tooltip
                 ]
             ]
         ];
+        
     
         return $chartConfig;
     }
@@ -157,7 +169,7 @@ class AnalisaIndikatorController extends CI_Controller {
             $chartData = $this->convertToQuickChartFormat($item['chart']);
 
             $chartConfig = json_encode($chartData);
-            $chartUrl = "https://quickchart.io/chart?w=500&h=300&c=" . urlencode($chartConfig);
+            $chartUrl = "https://quickchart.io/chart?w=350&h=280&c=" . urlencode($chartConfig);
     
             //$listChart = $chartUrl;
             $listChart[$item['kriteria']] = $chartUrl;
