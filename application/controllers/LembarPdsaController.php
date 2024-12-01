@@ -31,7 +31,7 @@ class LembarPdsaController extends CI_Controller {
         $file_pdf = "Lembar_PDSA_" . $unit . "_" . $idx;
         
         // Panggil fungsi generate dari pdfgenerator
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"potrait");
         
     }
     

@@ -19,7 +19,7 @@ class FormBController extends CI_Controller {
         $data['list']=$this->getHeaderData_get($unit);
         $html = $this->load->view('form_b', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"landscape");
     }
 
     public function getHeaderData_get($unit) {

@@ -5,7 +5,7 @@ use Dompdf\Options;
 
 class Pdfgenerator
 {
-    public function generate($html, $filename='', $stream = TRUE)
+    public function generate($html, $filename='', $stream = TRUE, $orientation='')
     {
 
         $options = new Options();
@@ -15,7 +15,7 @@ class Pdfgenerator
     
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
-        $dompdf->setPaper('F4', 'landscape');
+        $dompdf->setPaper('F4', $orientation);
         $dompdf->render();
     
         if ($stream) {

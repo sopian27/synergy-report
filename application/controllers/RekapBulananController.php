@@ -20,7 +20,7 @@ class RekapBulananController extends CI_Controller {
         $data['unit']=$unit;
         $html = $this->load->view('form_c', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"landscape");
     }
 
     public function getHeaderData_get($unit) {

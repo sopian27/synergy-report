@@ -19,7 +19,7 @@ class FormAController extends CI_Controller {
         $data['list']=$this->getHeaderDataFormA_get($unit);
         $html = $this->load->view('form_a', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf);
+        $this->pdfgenerator->generate($html, $file_pdf,true,"landscape");
     }
 
 
