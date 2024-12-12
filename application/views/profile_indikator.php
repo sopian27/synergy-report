@@ -114,7 +114,14 @@
             </tr>
             <tr>
                 <th>Instrumen Pengumpulan Data</th>
-                <td><?=$value->INSTRUMEN_PENGAMBILAN?></td>
+                <td>
+                    <?php 
+                    echo $value->INSTRUMEN_PENGAMBILAN; 
+                    if (!empty($value->ISI_INSTRUMEN)) {
+                        echo " : " . $value->ISI_INSTRUMEN;
+                    }
+                    ?>
+                </td>
             </tr>
             <tr>
                 <th>Besar Sampel</th>
@@ -130,7 +137,7 @@
             </tr>
             <tr>
                 <th>Periode Penyajian Data</th>
-                <td><?=$value->PERIODE_ANALISA?></td>
+                <td>Run Chart</td>
             </tr>
             <tr>
                 <th>Pengguna Data</th>
@@ -139,8 +146,12 @@
             <tr>
                 <th>Pola Analisis dan Pelaporan</th>
                 <td>
-                    <input type="checkbox"> Run chart
+                    Triwulan
                 </td>
+            </tr>
+            <tr>
+                <th>Penanggung Jawab</th>
+                <td><?=$value->PENANGGUNG_JAWAB?></td>
             </tr>
             <tr>
                 <th>Kode Indikator</th>
