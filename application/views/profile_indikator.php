@@ -117,7 +117,7 @@
                 <td>
                     <?php 
                     echo $value->INSTRUMEN_PENGAMBILAN; 
-                    if (!empty($value->ISI_INSTRUMEN)) {
+                    if ($value->INSTRUMEN_PENGAMBILAN=="Lainnya") {
                         echo " : " . $value->ISI_INSTRUMEN;
                     }
                     ?>
