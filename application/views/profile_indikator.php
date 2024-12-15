@@ -140,7 +140,7 @@
                 <th>Periode Penyajian Data</th>
                 <td>Run Chart</td>
             </tr>
-            <tr>
+            <tr style="display:none";>
                 <th>Pengguna Data</th>
                 <td>Unit di Synergy</td>
             </tr>
