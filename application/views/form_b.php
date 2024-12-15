@@ -21,12 +21,12 @@
             <div class="col-xs-12 col-md-6">
                 <h2>Form B</h2>
                 <h4>LAPORAN BULANAN UNIT</h4>
-                <h6>Instalasi Rawat Jalan</h6>
+                <h6>INSTALASI <?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
                 <h6>RSU SAWAH BESAR</h6>
             </div>
             <div class="col-xs-12 col-md-6" style="margin-left:600px;">
                 <p><b>Bulan :</b><?= $monthSelectedName ?></p>
-                <p><b>PIC data :</b><?=$direkturName?></p>
+                <p><b>PIC data :</b> <?=ucwords(strtolower(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit)))?></p>
                 <p><b>Tanggal dilaporkan :</b> <?= $todayDate ?></p>
             </div>
         </div>

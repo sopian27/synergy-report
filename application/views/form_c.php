@@ -23,8 +23,8 @@
             <div class="col-xs-12 col-md-6">
                 <h2>Form C</h2>
                 <h4>REKAPITULASI PENCAPAIAN INDIKATOR MUTU RSUD SAWAH BESAR</h4>
-                <h6><?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
-                <h6>RSU SAWAH BESAR</h6>
+                <h6>UNIT <?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
+                <h6>RSUD SAWAH BESAR</h6>
             </div>
         </div>
         <table class="table table-striped table-bordered">

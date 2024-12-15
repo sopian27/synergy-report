@@ -16,6 +16,7 @@ class FormBController extends CI_Controller {
         $json = file_get_contents('php://input');
         $data = json_decode($json, true); // Decode JSON data to PHP array
         $data['title'] = "Report Form B ".$unit;
+        $data['unit']=$unit;
         $data['list']=$this->getHeaderData_get($unit);
         $html = $this->load->view('form_b', $data, true);
         $file_pdf = $data['title'];

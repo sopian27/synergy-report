@@ -45,8 +45,8 @@
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <h2>Lembar Kerja Perbaikan Mutu dengan Metode PDSA</h2>
-                <h6><?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
-                <h6>RSU SAWAH BESAR</h6>
+                <h6>UNIT <?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
+                <h6>RSUD SAWAH BESAR</h6>
             </div>
         </div>
         <table>

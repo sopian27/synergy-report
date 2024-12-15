@@ -13,6 +13,7 @@
         transform: scale(0.8);
         /* Adjust the scale as needed */
         transform-origin: top left;
+        font-family: Arial, sans-serif;
     }
 
     table {
@@ -32,14 +33,14 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" style="display: flex; align-items: center;">
             <div class="col-xs-12 col-md-6">
                 <h2>Analisa Indikator</h2>
-                <h6><?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
-                <h6>RSU SAWAH BESAR</h6>
+                <h6>UNIT <?=strtoupper(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit));?></h6>
+                <h6>RSUD SAWAH BESAR</h6>
             </div>
-            <div class="col-xs-12 col-md-6" style="margin-left:600px;">
-                <p><b>PIC data :</b><?=$direkturName?></p>
+            <div class="col-xs-12 col-md-6" style="text-align: right;margin-top:60px">
+                <p><b>PIC data :</b> <?=ucwords(strtolower(preg_replace('/([a-z])([A-Z])/', '$1 $2', $unit)))?></p>
             </div>
         </div>
         <table class="table table-striped table-bordered">
