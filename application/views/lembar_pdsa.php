@@ -80,7 +80,7 @@
             </tr>
             <tr>
                 <th>Masalah / Peluang:</th>
-                <td><?=$list->MASALAH?></td>
+                <td><?= nl2br(htmlspecialchars($list->MASALAH)) ?></td>
             </tr>
         </table>
 
@@ -89,7 +89,7 @@
                 <th>Langkah 1. Tujuan (Apa yang ingin dicapai):</th>
             </tr>
             <tr>
-                <td><?=$list->TUJUAN?></td>
+                <td><?= nl2br(htmlspecialchars($list->TUJUAN)) ?></td>
             </tr>
             <tr>
                 <th>Langkah 2. Bagaimana kita mengukur jika perbaikan menghasilkan perubahan? (Pilih salah satu)</th>
@@ -101,7 +101,7 @@
                 <th>Langkah 3 . Perbaikan apa yang akan dilakukan untuk menghasilkan perbaikan?:</th>
             </tr>
             <tr>
-                <td><?=$list->PERBAIKAN?></td>
+                <td><?= nl2br(htmlspecialchars($list->PERBAIKAN)) ?></td>
             </tr>
         </table>
         <table>
@@ -125,7 +125,7 @@
                 <th>PLAN <br />Saya berencana:</th>
             </tr>
             <tr>
-                <td><?=$siklus->RENCANA?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->RENCANA)) ?></td>
             </tr>
             <tr>
                 <th>Tanggal Mulai Siklus:</th>
@@ -143,13 +143,13 @@
                 <th>Saya berharap :</th>
             </tr>
             <tr>
-                <td><?=$siklus->BERHARAP?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->BERHARAP)) ?></td>
             </tr>
             <tr>
                 <th>Tindakan:</th>
             </tr>
             <tr>
-                <td><?=$siklus->TINDAKAN?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->TINDAKAN)) ?></td>
             </tr>
             <tr>
                 <th>DO:</th>
@@ -161,13 +161,13 @@
                 <th>Apa yang diamati?</th>
             </tr>
             <tr>
-                <td><?=$siklus->DIAMATI?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->DIAMATI)) ?></td>
             </tr>
             <tr>
                 <th>STUDY:</th>
             </tr>
             <tr>
-                <td><?=$siklus->PELAJARI?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->PELAJARI)) ?></td>
             </tr>
             <tr>
                 <th>Apa yang dipelajari ? Apakah sesuai dengan tujuan?</th>
@@ -179,7 +179,7 @@
                 <th>ACT</th>
             </tr>
             <tr>
-                <td><?=$siklus->TINDAKAN_SELANJUTNYA?></td>
+                <td><?= nl2br(htmlspecialchars($siklus->TINDAKAN_SELANJUTNYA)) ?></td>
             </tr>
             <tr>
                 <th>Dokumentasi</th>

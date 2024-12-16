@@ -55,9 +55,7 @@
             </tr>
             <tr>
                 <th>Dasar Pemikiran</th>
-                <td>
-                    <?=$value->DASAR_PEMIKIRAN?>
-                </td>
+                <td><?= nl2br(htmlspecialchars($value->DASAR_PEMIKIRAN)) ?></td>
             </tr>
             <tr>
                 <th>Dimensi Mutu</th>
@@ -79,7 +77,7 @@
             </tr>
             <tr>
                 <th>Definisi Operasional</th>
-                <td><?=$value->DEFINISI_PEMIKIRAN?></td>
+                <td><?= nl2br(htmlspecialchars($value->DEFINISI_PEMIKIRAN)) ?></td>
             </tr>
             <tr>
                 <th>Jenis Indikator</th>
@@ -91,19 +89,23 @@
             </tr>
             <tr>
                 <th>Numerator (pembilang)</th>
-                <td><?=$value->NUMERATOR?></td>
+                <td><?= nl2br(htmlspecialchars($value->NUMERATOR)) ?></td>
             </tr>
             <tr>
                 <th>Denominator (penyebut)</th>
-                <td><?=$value->DENUMERATOR?></td>
+                <td><?= nl2br(htmlspecialchars($value->DENUMERATOR)) ?></td>
             </tr>
             <tr>
                 <th>Target Pencapaian</th>
                 <td><?=$value->TARGET_PENCAPAIAN?></td>
             </tr>
             <tr>
+                <th>Kriteria</th>
+                <td><?= nl2br(htmlspecialchars($value->KRITERIA)) ?></td>
+            </tr>
+            <tr>
                 <th>Formula</th>
-                <td><?=$value->FORMULA?></td>
+                <td><?= nl2br(htmlspecialchars($value->FORMULA)) ?></td>
             </tr>
             <tr>
                 <th>Metode Pengumpulan Data</th>
@@ -119,14 +121,15 @@
                     <?php 
                     echo $value->INSTRUMEN_PENGAMBILAN; 
                     if ($value->INSTRUMEN_PENGAMBILAN=="Lainnya") {
-                        echo " : " . $value->ISI_INSTRUMEN;
+                        echo " : " . nl2br(htmlspecialchars($value->ISI_INSTRUMEN));
                     }
                     ?>
                 </td>
             </tr>
             <tr>
                 <th>Besar Sampel</th>
-                <td><?=$value->BESAR_SAMPEL?></td>
+                <td><?= nl2br(htmlspecialchars($value->BESAR_SAMPEL)) ?></td>
+            </tr>
             </tr>
             <tr>
                 <th>Cara Pengambilan Sampel</th>
@@ -140,7 +143,7 @@
                 <th>Periode Penyajian Data</th>
                 <td>Run Chart</td>
             </tr>
-            <tr style="display:none";>
+            <tr style="display:none" ;>
                 <th>Pengguna Data</th>
                 <td>Unit di Synergy</td>
             </tr>

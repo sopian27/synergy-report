@@ -51,15 +51,11 @@
             </tr>
             <tr>
                 <th>NUMERATOR</th>
-                <td><?=$value['NUMERATOR']?></td>
+                <td><?= nl2br(htmlspecialchars($value['NUMERATOR'])) ?></td>
             </tr>
             <tr>
                 <th>DENUMERATOR</th>
-                <td><?=$value['DENUMERATOR']?></td>
-            </tr>
-            <tr>
-                <th>TARGET</th>
-                <td><?=$value['TARGET_PENCAPAIAN']?></td>
+                <td><?= nl2br(htmlspecialchars($value['DENUMERATOR'])) ?></td>
             </tr>
             <tr>
                 <th>TARGET</th>
@@ -90,11 +86,11 @@
             <?php endforeach; ?>
             <tr>
                 <th>ANALISA</th>
-                <td><?=$value['analisa']?></td>
+                <td><?= nl2br(htmlspecialchars($value['analisa'])) ?></td>
             </tr>
             <tr>
                 <th>REKOMENDASI</th>
-                <td><?=$value['rekomendasi']?></td>
+                <td><?= nl2br(htmlspecialchars($value['rekomendasi'])) ?></td>
             </tr>
             <?php } ?>
         </table>
