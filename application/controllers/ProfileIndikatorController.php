@@ -20,7 +20,7 @@ class ProfileIndikatorController extends CI_Controller {
         $data['unit']=$unit;
         $html = $this->load->view('profile_indikator', $data, true);
         $file_pdf = $data['title'];
-        $this->pdfgenerator->generate($html, $file_pdf,true,"landscape");
+        $this->pdfgenerator->generate($html, $file_pdf,true,"potrait");
     }
 
     public function getHeaderData_get($unit,$id) {
