@@ -61,6 +61,14 @@
                 <th>TARGET</th>
                 <td><?=$value['TARGET_PENCAPAIAN']?></td>
             </tr>
+            <tr>
+                <th>TARGET</th>
+                <td><?=$value['TARGET_PENCAPAIAN']?></td>
+            </tr>
+            <tr>
+                <th>TAHUN</th>
+                <td><?=$value['tahun']?></td>
+            </tr>
             <?php foreach ($charts as $index => $chartUrl): ?>
             <tr>
                 <?php

@@ -25,12 +25,12 @@ class AnalisaIndikatorController extends CI_Controller {
     }
 
     
-    public function pdfUnit($unit) {
+    public function pdfUnit($unit,$tahun) {
 
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
         $data['title'] = "Analisa Indikator ".$unit;
-        $data['list']=$this->getHeaderData_get($unit,null);
+        $data['list']=$this->getHeaderData_get($unit,null,$tahun);
         $data['unit']=$unit;
         $data['charts']=$this->buildChartDownload($data);
         $html = $this->load->view('analisa_indikator', $data, true);
@@ -138,10 +138,10 @@ class AnalisaIndikatorController extends CI_Controller {
         return $chartConfig;
     }
 
-    public function getHeaderData_get($unit,$id) {
+    public function getHeaderData_get($unit,$id,$tahun) {
 
         $dynamicData = array();
-        $dynamicData=$this->sikat_analisa_indikator_model->getByQuery($unit,$id);
+        $dynamicData=$this->sikat_analisa_indikator_model->getByQuery($unit,$id,$tahun);
         return $dynamicData;
     }
 

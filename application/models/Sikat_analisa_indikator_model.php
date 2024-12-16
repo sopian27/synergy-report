@@ -8,7 +8,7 @@ class Sikat_Analisa_Indikator_Model extends CI_Model
         return $this->db->get_where('sikat_analisa_indikator', $where)->result();
     }
 
-    public function getByQuery($unit,$id) {
+    public function getByQuery($unit,$id,$tahun) {
         $this->db
         ->select('an.*, tp.JUDUL_INDIKATOR,tp.NUMERATOR,tp.DENUMERATOR,tp.TARGET_PENCAPAIAN', false)
         ->from('sikat_analisa_indikator as an')
@@ -17,6 +17,7 @@ class Sikat_Analisa_Indikator_Model extends CI_Model
 
         if(isset($unit)) $this->db->where('tp.process_type =',$unit);
         if(isset($id)) $this->db->where('an.id =',$id);
+        if(isset($tahun)) $this->db->where('an.tahun =',$tahun);
         return $this->db->get()->result_array();
     }
 }
