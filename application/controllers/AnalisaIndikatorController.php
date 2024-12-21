@@ -53,13 +53,16 @@ class AnalisaIndikatorController extends CI_Controller {
         $labels = [];
         // Array untuk menyimpan datasets
         $datasets = [];
-    
         // Iterasi untuk mendapatkan label dan dataset
         foreach ($data['lines'] as $line) {
             // Hitung total nilai data untuk ditampilkan di legend
-            $total = array_sum(array_column($line['data'], 'y'));
+            
             $dataset = [
-                'label' => $line['name'] . ' (' . number_format($total, 2) . ')', // Menambahkan total ke label legend
+                'label' => $line['name'] ." ( ". implode(', ', array_map(function($x, $y) {
+                                            return "$x : $y";  // Format "x : y"
+                                        }, array_column($line['data'], 'x'), array_column($line['data'], 'y'))) ." ) ",
+
+               // 'label' => implode(', ', array_column($line['data'], 'x')) . ' (' . number_format($total, 2) . ')',
                 'data' => [],
                 'fill' => false, // Garis tidak diisi
                 //'borderColor' => $line['color'], // Warna garis
@@ -77,10 +80,13 @@ class AnalisaIndikatorController extends CI_Controller {
             }
     
             $datasets[] = $dataset;
+
         }
     
         // Struktur akhir yang sesuai dengan format QuickChart
         $chartConfig = [
+            'width' => 3898,  // Lebar untuk F4 Landscape (300 DPI)
+            'height' => 2540,  // Tinggi untuk F4 Landscape (300 DPI)
             'type' => 'line',
             'data' => [
                 'labels' => $labels,
@@ -121,7 +127,7 @@ class AnalisaIndikatorController extends CI_Controller {
                     'display' => true,
                     'position' => 'bottom',
                     'labels' => [
-                        'fontSize' => 10 // Ukuran font untuk legend
+                        'fontSize' => 8 // Ukuran font untuk legend
                     ]
                 ],
                 'tooltips' => [

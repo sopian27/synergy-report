@@ -73,7 +73,7 @@
                 ?> 
                 <td>
                     <div>
-                        <img src="<?= $chartUrl ?>" alt="Chart for <?= $index ?>" />
+                        <img src="<?= $chartUrl ?>" alt="Chart for <?= $index ?>" style='width:100%; height:auto;' />
                     </div>
                 </td>
                 <?php
