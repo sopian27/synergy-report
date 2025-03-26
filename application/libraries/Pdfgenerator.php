@@ -15,7 +15,10 @@ class Pdfgenerator
     
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
-        $dompdf->setPaper('F4', $orientation);
+        
+        // Set ukuran kertas 8.5 x 13 inch tanpa batas di bawah
+        $customPaper = [0, 0, 612, 936]; // 8.5 * 72, 13 * 72
+        $dompdf->setPaper($customPaper, $orientation);
         $dompdf->render();
     
         if ($stream) {
